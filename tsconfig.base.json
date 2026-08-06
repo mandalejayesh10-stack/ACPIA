@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "ACPIA Base TypeScript Config",
+  "compilerOptions": {
+    // ─── Target ─────────────────────────────────────────────────────────────
+    "target": "ES2022",
+    "lib": ["ES2022"],
+
+    // ─── Module ─────────────────────────────────────────────────────────────
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    // ─── Strict — ENGINEERING_CONTRACT.md: Strict mode is non-negotiable ────
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    // ─── Additional checks ───────────────────────────────────────────────────
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // ─── Output ──────────────────────────────────────────────────────────────
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    // ─── Other ───────────────────────────────────────────────────────────────
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  }
+}

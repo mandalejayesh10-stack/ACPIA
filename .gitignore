@@ -1,0 +1,77 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+out/
+
+# Next.js
+.next/
+
+# Turborepo
+.turbo/
+
+# Testing
+coverage/
+*.lcov
+
+# Environment — NEVER commit secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/settings.json
+.vscode/launch.json
+!.vscode/extensions.json
+
+# TypeScript
+*.tsbuildinfo
+
+# Prisma
+*.db
+*.db-journal
+prisma/migrations/.keep
+
+# Docker
+.docker/volumes/
+
+# MinIO data (local dev)
+infra/minio-data/
+
+# Certificates (local dev)
+infra/certs/
+*.pem
+*.key
+*.crt
+
+# Temporary
+tmp/
+temp/
+.tmp/

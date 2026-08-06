@@ -1,0 +1,29 @@
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Turborepo
+.turbo/
+
+# Test coverage
+coverage/
+
+# Package manager
+node_modules/
+.pnp
+.pnp.js
+
+# Prisma
+prisma/migrations/
+
+# Generated files
+**/*.generated.ts
+**/__generated__/
+
+# Docs (markdown has its own formatting needs)
+docs/**/*.md
+*.md
+CHANGELOG.md
+LICENSE
