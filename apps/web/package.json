@@ -4,10 +4,25 @@
   "private": true,
   "description": "ACPIA — Investigation Platform Frontend (Next.js 15)",
   "scripts": {
-    "dev": "echo 'Initialized in Sprint 0.3 — next dev'",
-    "build": "echo 'Initialized in Sprint 0.3 — next build'",
-    "start": "echo 'Initialized in Sprint 0.3 — next start'",
-    "lint": "echo 'Initialized in Sprint 0.3 — next lint'",
-    "typecheck": "echo 'Initialized in Sprint 0.3 — tsc'"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@acpia/shared": "workspace:*",
+    "@acpia/ui": "workspace:*",
+    "framer-motion": "^11.3.0",
+    "lucide-react": "^0.428.0",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.5.0"
   }
 }
