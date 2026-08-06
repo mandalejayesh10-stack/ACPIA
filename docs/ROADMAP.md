@@ -27,7 +27,7 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 | 0.6 | CI/CD & Final Quality Verification | ✅ **COMPLETE** |
 | 1 | Frontend Foundation (App Router, theme, 3-panel shell, Navbar, Sidebar, RightPanel, Error/404) | ✅ **COMPLETE** |
 | 2 | Backend Foundation (NestJS 10, HealthModule, ConfigModule, LoggerModule, Swagger UI) | ✅ **COMPLETE** |
-| 3 | Infrastructure (Docker, all services) | ⬜ Queued |
+| 3 | Infrastructure (Docker Compose: Postgres 16, Neo4j 5, Redis 7, RabbitMQ 3, Qdrant, MinIO, Elasticsearch 8) | ✅ **COMPLETE** |
 | 4 | Authentication (JWT, RBAC, refresh tokens) | ⬜ |
 | 5 | Database Schema (all tables) | ⬜ |
 | 6 | Knowledge Graph (Neo4j nodes + queries) | ⬜ |
