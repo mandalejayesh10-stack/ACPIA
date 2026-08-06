@@ -18,11 +18,16 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 
 | Sprint | Name | Status |
 |---|---|---|
-| -1 | Engineering Contract + Documentation | 🔄 In Progress |
-| 0 | Repository Bootstrap (monorepo, toolchain) | ⬜ |
-| 1 | Frontend Foundation (App Router, theme, layout) | ⬜ |
-| 2 | Backend Foundation (NestJS, health, swagger) | ⬜ |
-| 3 | Infrastructure (Docker, all services) | ⬜ |
+| -1 | Engineering Contract + Documentation | ✅ **APPROVED · LOCKED** |
+| 0.1 | Repository Bootstrap (toolchain, pnpm, turbo) | ✅ **COMPLETE** |
+| 0.2 | Workspace Initialization (apps, packages, plugins) | ✅ **COMPLETE** |
+| 0.3 | Frontend Bootstrap (Next.js 15, theme tokens) | ✅ **COMPLETE** |
+| 0.4 | Backend Bootstrap (NestJS 10, Swagger, health) | ✅ **COMPLETE** |
+| 0.5 | Shared Packages (@acpia/shared, ui, agent-sdk) | ✅ **COMPLETE** |
+| 0.6 | CI/CD & Final Quality Verification | ✅ **COMPLETE** |
+| 1 | Frontend Foundation (App Router, theme, layout) | ⬜ Queued |
+| 2 | Backend Foundation (NestJS, health, swagger) | ⬜ Queued |
+| 3 | Infrastructure (Docker, all services) | ⬜ Queued |
 | 4 | Authentication (JWT, RBAC, refresh tokens) | ⬜ |
 | 5 | Database Schema (all tables) | ⬜ |
 | 6 | Knowledge Graph (Neo4j nodes + queries) | ⬜ |
