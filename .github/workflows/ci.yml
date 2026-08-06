@@ -153,4 +153,4 @@ jobs:
 
       - name: Audit dependencies
         run: pnpm audit --audit-level=high
-        continue-on-error: true  # Warn only — not blocking until Sprint 61 security hardening
+        continue-on-error: true # Warn only — not blocking until Sprint 61 security hardening

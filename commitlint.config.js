@@ -11,17 +11,17 @@ export default {
       2,
       'always',
       [
-        'feat',      // new feature
-        'fix',       // bug fix
-        'chore',     // maintenance, dependency updates
-        'docs',      // documentation only
-        'test',      // test additions or fixes
-        'refactor',  // code restructure (no behaviour change)
-        'perf',      // performance improvement
-        'ci',        // CI/CD pipeline changes
-        'sprint',    // sprint deliverable (major commit)
-        'style',     // formatting only
-        'revert',    // revert a previous commit
+        'feat', // new feature
+        'fix', // bug fix
+        'chore', // maintenance, dependency updates
+        'docs', // documentation only
+        'test', // test additions or fixes
+        'refactor', // code restructure (no behaviour change)
+        'perf', // performance improvement
+        'ci', // CI/CD pipeline changes
+        'sprint', // sprint deliverable (major commit)
+        'style', // formatting only
+        'revert', // revert a previous commit
       ],
     ],
 
