@@ -1,0 +1,14 @@
+// ACPIA Prisma Schema Stub
+// Governed by docs/ONTOLOGY.md & docs/SECURITY.md
+// Database: PostgreSQL 16 (Sprint 5)
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Initialized in Sprint 5 — Database Schema
