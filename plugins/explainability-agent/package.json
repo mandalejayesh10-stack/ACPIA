@@ -1,0 +1,29 @@
+{
+  "name": "@acpia/explainability-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ACPIA — Agent 16: Explainability (Sprint 51)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch",
+    "lint": "echo 'Initialized in Sprint 51'",
+    "typecheck": "echo 'Initialized in Sprint 51'",
+    "test": "echo 'Initialized in Sprint 51'",
+    "clean": "rimraf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@acpia/agent-sdk": "workspace:*",
+    "@acpia/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

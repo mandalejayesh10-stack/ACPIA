@@ -1,0 +1,29 @@
+{
+  "name": "@acpia/hypothesis-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ACPIA — Agent 13: Hypothesis Generation (Sprint 45)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch",
+    "lint": "echo 'Initialized in Sprint 45'",
+    "typecheck": "echo 'Initialized in Sprint 45'",
+    "test": "echo 'Initialized in Sprint 45'",
+    "clean": "rimraf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@acpia/agent-sdk": "workspace:*",
+    "@acpia/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

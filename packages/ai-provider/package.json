@@ -1,0 +1,26 @@
+{
+  "name": "@acpia/ai-provider",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ACPIA — Unified AI Provider Layer: reason(), vision(), ocr(), speech(), embed() (Sprint 17)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "clean": "rimraf dist *.tsbuildinfo"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

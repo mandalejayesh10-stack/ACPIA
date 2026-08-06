@@ -38,6 +38,248 @@ importers:
         specifier: ^8.3.0
         version: 8.66.0(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3)
 
+  apps/api: {}
+
+  apps/web: {}
+
+  packages/agent-sdk:
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  packages/ai-provider:
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  packages/prompt-registry:
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  packages/shared:
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  packages/ui:
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/activity-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/content-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/context-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/copilot-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/evidence-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/explainability-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/fusion-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/hypothesis-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/metadata-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/reporting-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/retrieval-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/risk-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/synthetic-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/threat-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/timeline-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
+  plugins/verification-agent:
+    dependencies:
+      '@acpia/agent-sdk':
+        specifier: workspace:*
+        version: link:../../packages/agent-sdk
+      '@acpia/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.9.3
+
 packages:
   '@babel/code-frame@7.29.7':
     resolution:

@@ -1,0 +1,13 @@
+{
+  "name": "@acpia/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ACPIA — Investigation Platform Frontend (Next.js 15)",
+  "scripts": {
+    "dev": "echo 'Initialized in Sprint 0.3 — next dev'",
+    "build": "echo 'Initialized in Sprint 0.3 — next build'",
+    "start": "echo 'Initialized in Sprint 0.3 — next start'",
+    "lint": "echo 'Initialized in Sprint 0.3 — next lint'",
+    "typecheck": "echo 'Initialized in Sprint 0.3 — tsc'"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@acpia/api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ACPIA — Investigation Platform Backend (NestJS 10)",
+  "scripts": {
+    "dev": "echo 'Initialized in Sprint 0.4 — nest start --watch'",
+    "build": "echo 'Initialized in Sprint 0.4 — nest build'",
+    "start": "echo 'Initialized in Sprint 0.4 — nest start'",
+    "lint": "echo 'Initialized in Sprint 0.4 — eslint src/'",
+    "typecheck": "echo 'Initialized in Sprint 0.4 — tsc'"
+  }
+}

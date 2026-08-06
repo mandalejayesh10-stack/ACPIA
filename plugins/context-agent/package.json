@@ -1,0 +1,29 @@
+{
+  "name": "@acpia/context-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ACPIA — Agent 4: Context Extraction (Sprint 27)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch",
+    "lint": "echo 'Initialized in Sprint 27'",
+    "typecheck": "echo 'Initialized in Sprint 27'",
+    "test": "echo 'Initialized in Sprint 27'",
+    "clean": "rimraf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@acpia/agent-sdk": "workspace:*",
+    "@acpia/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@acpia/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ACPIA — Shared TypeScript types, Zod schemas, and constants",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist *.tsbuildinfo"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
