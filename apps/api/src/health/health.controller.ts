@@ -1,30 +1,30 @@
 import { Controller, Get } from '@nestjs/common'
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger'
+import { HealthService } from './health.service.js'
 
 @ApiTags('Health')
 @Controller('health')
 export class HealthController {
+  constructor(private readonly healthService: HealthService) {}
+
   @Get()
-  @ApiOperation({ summary: 'Platform Health Check Endpoint' })
-  @ApiResponse({
-    status: 200,
-    description: 'System health status and metrics',
-  })
+  @ApiOperation({ summary: 'Platform Overall Health Check' })
+  @ApiResponse({ status: 200, description: 'Health check result' })
   check() {
-    return {
-      status: 'OK',
-      timestamp: new Date().toISOString(),
-      version: '1.0.0',
-      service: 'acpia.api',
-      environment: process.env.NODE_ENV || 'development',
-      services: [
-        { name: 'postgres', status: 'STANDBY', latencyMs: 0 },
-        { name: 'neo4j', status: 'STANDBY', latencyMs: 0 },
-        { name: 'redis', status: 'STANDBY', latencyMs: 0 },
-        { name: 'rabbitmq', status: 'STANDBY', latencyMs: 0 },
-        { name: 'qdrant', status: 'STANDBY', latencyMs: 0 },
-        { name: 'minio', status: 'STANDBY', latencyMs: 0 },
-      ],
-    }
+    return this.healthService.getHealth()
+  }
+
+  @Get('liveness')
+  @ApiOperation({ summary: 'Kubernetes/Docker Liveness Probe' })
+  @ApiResponse({ status: 200, description: 'Service is alive' })
+  liveness() {
+    return { status: 'UP', timestamp: new Date().toISOString() }
+  }
+
+  @Get('readiness')
+  @ApiOperation({ summary: 'Kubernetes/Docker Readiness Probe' })
+  @ApiResponse({ status: 200, description: 'Service is ready' })
+  readiness() {
+    return { status: 'READY', timestamp: new Date().toISOString() }
   }
 }
