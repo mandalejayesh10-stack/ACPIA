@@ -1,29 +1,62 @@
 /**
- * @acpia/ai-provider
- *
- * The unified AI Provider Layer.
- * This is the ONLY package in the monorepo that may import AI SDKs
- * (openai, @anthropic-ai/sdk, etc.).
- *
- * ARCHITECTURE RULE (AI_PROVIDER.md):
- * - No agent, service, or app may import AI SDKs directly
- * - All AI calls flow through this package's AIProvider interface
- * - Provider can be swapped (OpenAI → Anthropic → Ollama) without changing agent code
- *
- * Methods:
- * - reason()   — text reasoning and generation
- * - vision()   — image and video analysis
- * - ocr()      — text extraction from images/documents
- * - speech()   — audio transcription
- * - embed()    — semantic embeddings for vector search
- * - moderate() — content moderation
- * - plan()     — multi-step tool-calling orchestration
- * - verify()   — claim verification against evidence
- *
- * Initialized: Sprint 0.2
- * Implemented: Sprint 17
- *
- * @see docs/AI_PROVIDER.md
- * @see docs/adr/ADR-005-openai-responses-api.md
+ * @acpia/ai-provider — Unified AI Interface
+ * Governed by docs/AI_PROVIDER.md & docs/adr/ADR-005-openai-responses-api.md
  */
-export {}
+
+export interface ReasonRequest {
+  promptId: string
+  variables?: Record<string, unknown>
+  temperature?: number
+  maxTokens?: number
+}
+
+export interface ReasonResponse {
+  content: string
+  model: string
+  promptTokens: number
+  completionTokens: number
+  totalTokens: number
+  costUsd: number
+}
+
+export interface VisionRequest {
+  promptId: string
+  imageUris: string[]
+  variables?: Record<string, unknown>
+}
+
+export interface VisionResponse {
+  analysis: string
+  detectedObjects?: string[]
+  confidence: number
+  tokensUsed: number
+}
+
+export interface SpeechRequest {
+  audioUri: string
+  language?: string
+}
+
+export interface SpeechResponse {
+  transcript: string
+  durationSeconds: number
+  languageDetected: string
+}
+
+export interface EmbedRequest {
+  text: string
+  model?: 'text-embedding-3-large' | 'text-embedding-3-small'
+}
+
+export interface EmbedResponse {
+  embedding: number[]
+  dimensions: number
+}
+
+export interface AIProvider {
+  reason(request: ReasonRequest): Promise<ReasonResponse>
+  vision(request: VisionRequest): Promise<VisionResponse>
+  speech(request: SpeechRequest): Promise<SpeechResponse>
+  embed(request: EmbedRequest): Promise<EmbedResponse>
+  health(): Promise<{ status: 'OK' | 'DOWN'; latencyMs: number }>
+}

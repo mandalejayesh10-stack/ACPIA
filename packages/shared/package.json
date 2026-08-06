@@ -19,6 +19,9 @@
     "typecheck": "tsc --noEmit",
     "clean": "rimraf dist *.tsbuildinfo"
   },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
   "devDependencies": {
     "typescript": "^5.5.0"
   }
