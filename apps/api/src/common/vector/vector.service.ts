@@ -1,6 +1,7 @@
 import { Injectable, OnModuleInit, Logger } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { QdrantClient } from '@qdrant/js-client-rest'
+import { defaultAiProviderManager } from '@acpia/ai-provider'
 
 export interface VectorSearchResult {
   id: string | number
@@ -50,6 +51,38 @@ export class VectorService implements OnModuleInit {
     } catch (err) {
       this.logger.warn(`Qdrant collections setup deferred: ${(err as Error).message}`)
     }
+  }
+
+  /**
+   * Generate embedding via OpenAIProvider & index evidence text into Qdrant acpia_evidence
+   */
+  async indexEvidenceEmbedding(
+    evidenceId: string,
+    caseId: string,
+    text: string,
+    metadata: Record<string, unknown> = {}
+  ): Promise<void> {
+    const embedRes = await defaultAiProviderManager.embed({ text })
+    await this.upsertVector('acpia_evidence', evidenceId, embedRes.embedding, {
+      caseId,
+      evidenceId,
+      text,
+      ...metadata,
+    })
+    this.logger.log(`Indexed evidence embedding for ${evidenceId} in case ${caseId}`)
+  }
+
+  /**
+   * Execute end-to-end semantic search by query string per ADR-003
+   */
+  async semanticSearchByQueryText(
+    caseId: string,
+    queryText: string,
+    collectionName: string = 'acpia_evidence',
+    limit: number = 10
+  ): Promise<VectorSearchResult[]> {
+    const embedRes = await defaultAiProviderManager.embed({ text: queryText })
+    return this.searchVectors(collectionName, embedRes.embedding, caseId, limit)
   }
 
   /**

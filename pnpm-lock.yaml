@@ -40,6 +40,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@acpia/ai-provider':
+        specifier: workspace:*
+        version: link:../../packages/ai-provider
       '@acpia/shared':
         specifier: workspace:*
         version: link:../../packages/shared
