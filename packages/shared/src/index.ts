@@ -5,6 +5,8 @@
 
 import { z } from 'zod'
 
+export * from './demo-data-generator.js'
+
 // ─── Base Custom Error ───────────────────────────────────────────────────────
 export abstract class AcpiaBaseError extends Error {
   abstract readonly code: string
