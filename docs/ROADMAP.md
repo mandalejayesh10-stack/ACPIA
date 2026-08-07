@@ -52,8 +52,8 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 | 14 | Agent SDK (BaseAgent abstract class, AgentManifest, AgentPlugin interface, HealthStatus, AgentFinding) | ✅ **COMPLETE** |
 | 15 | Shared Memory (Redis + PostgreSQL sync engine for Case, Entity, Conversation & Evidence state) | ✅ **COMPLETE** |
 | 16 | Prompt Registry (versioned, typed, pre-registered prompts for Content, Threat, Hypothesis, Report & Copilot) | ✅ **COMPLETE** |
-| 17 | AI Provider Layer (reason, vision, ocr, speech, embed) | ⬜ Queued |
-| 18 | OpenAI Integration (Responses API, function calling) | ⬜ |
+| 17 | AI Provider Layer (AiProviderManager multi-LLM fallback engine with Reason, Vision, Speech & Embed features) | ✅ **COMPLETE** |
+| 18 | OpenAI Integration (Responses API, function calling) | ⬜ Queued |
 | 19 | Embeddings (OpenAI → Qdrant → Search) | ⬜ |
 | 20 | Logging + Observability (OpenTelemetry, Grafana) | ⬜ |
 

@@ -60,3 +60,5 @@ export interface AIProvider {
   embed(request: EmbedRequest): Promise<EmbedResponse>
   health(): Promise<{ status: 'OK' | 'DOWN'; latencyMs: number }>
 }
+
+export * from './ai-provider-manager.js'
