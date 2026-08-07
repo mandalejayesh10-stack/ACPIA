@@ -55,7 +55,7 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 | 17 | AI Provider Layer (AiProviderManager multi-LLM fallback engine with Reason, Vision, Speech & Embed features) | ✅ **COMPLETE** |
 | 18 | OpenAI Integration (OpenAIProvider class for GPT-4o, GPT-4o Vision & Text Embeddings 3) | ✅ **COMPLETE** |
 | 19 | Embeddings & Vector Search (OpenAI Embeddings ➔ Qdrant ➔ Semantic Vector Search REST APIs) | ✅ **COMPLETE** |
-| 20 | Logging + Observability (OpenTelemetry, Grafana) | ⬜ Queued |
+| 20 | Logging + Observability (OpenTelemetry metrics buffer, multi-database health checks, ObservabilityModule) | ✅ **COMPLETE** |
 
 **Milestone**: AI provider works. Evidence can be analyzed. Embeddings indexed.
 
@@ -67,7 +67,7 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 
 | Sprint | Name | Status |
 |---|---|---|
-| 21–22 | Agent 1: Evidence Intake + Tests | ⬜ |
+| 21–22 | Agent 1: Evidence Intake + Tests | ⬜ Queued |
 | 23–24 | Agent 2: Content Analysis + Tests | ⬜ |
 | 25–26 | Agent 3: Threat Identification + Tests | ⬜ |
 | 27–28 | Agent 4: Context Extraction + Tests | ⬜ |
