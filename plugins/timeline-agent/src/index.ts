@@ -1,6 +1,6 @@
 /**
- * @acpia/timeline-agent
- * Agent 8 — Timeline Reconstruction: chronological event ordering from all evidence
- * Sprint 35
+ * @acpia/timeline-agent — Agent 8: Timeline Reconstruction
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './timeline-reconstruction-agent.js'
