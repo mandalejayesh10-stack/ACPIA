@@ -1,6 +1,5 @@
-// ACPIA Prisma Schema Stub
-// Governed by docs/ONTOLOGY.md & docs/SECURITY.md
-// Database: PostgreSQL 16 (Sprint 5)
+// ACPIA — Database Schema (Prisma ORM for PostgreSQL 16)
+// Governed by docs/SECURITY.md and docs/INVESTIGATION_STATE.md
 
 datasource db {
   provider = "postgresql"
@@ -11,4 +10,311 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// Initialized in Sprint 5 — Database Schema
+enum Role {
+  INVESTIGATOR
+  SUPERVISOR
+  ADMIN
+  AUDITOR
+}
+
+enum CaseStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  CLOSED
+  ARCHIVED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum EvidenceStatus {
+  UPLOADED
+  VALIDATED
+  ANALYZING
+  ANALYZED
+  FLAGGED
+  TAMPERED
+}
+
+enum CoCEventType {
+  COLLECTED
+  ANALYZED
+  VIEWED
+  DOWNLOADED
+  EXPORTED
+  ARCHIVED
+  TRANSFERRED
+}
+
+enum AgentExecutionStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum ReportStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  FINALIZED
+  SUPERSEDED
+}
+
+enum ReportType {
+  FULL
+  SUMMARY
+  LEGAL
+  PROGRESS
+}
+
+// ─── 1. Users & Authentication ────────────────────────────────────────────────
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         Role     @default(INVESTIGATOR)
+  caseAccess   String[] @default([])
+  isSuspended  Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  assignedCases   Case[]           @relation("AssignedInvestigator")
+  leadCases       Case[]           @relation("LeadSupervisor")
+  uploadedFiles   Evidence[]       @relation("UploadedBy")
+  agentExecutions AgentExecution[] @relation("TriggeredBy")
+  reportsGenerated Report[]        @relation("ReportGeneratedBy")
+
+  @@map("users")
+}
+
+// ─── 2. Cases ─────────────────────────────────────────────────────────────────
+model Case {
+  id                     String     @id @default(uuid())
+  caseNumber             String     @unique
+  title                  String
+  description            String?
+  status                 CaseStatus @default(DRAFT)
+  priority               Priority   @default(MEDIUM)
+  riskScore              Float      @default(0.0)
+  assignedInvestigatorId String?
+  leadSupervisorId       String?
+  departmentId           String     @default("KERALA_POLICE_CYBERDOME")
+  metadata               Json?
+  createdAt              DateTime   @default(now())
+  updatedAt              DateTime   @updatedAt
+  closedAt               DateTime?
+
+  assignedInvestigator User?  @relation("AssignedInvestigator", fields: [assignedInvestigatorId], references: [id])
+  leadSupervisor       User?  @relation("LeadSupervisor", fields: [leadSupervisorId], references: [id])
+
+  evidences         Evidence[]
+  chainOfCustody    ChainOfCustody[]
+  auditLogs         AuditLog[]
+  agentExecutions   AgentExecution[]
+  timelineEvents    TimelineEvent[]
+  riskAssessments   RiskAssessment[]
+  intelligenceState IntelligenceState?
+  reports           Report[]
+
+  @@map("cases")
+}
+
+// ─── 3. Evidence Intake & Files ───────────────────────────────────────────────
+model Evidence {
+  id          String         @id @default(uuid())
+  caseId      String
+  fileName    String
+  mimeType    String
+  sizeBytes   BigInt
+  hashSha256  String
+  storagePath String
+  status      EvidenceStatus @default(UPLOADED)
+  isTampered  Boolean        @default(false)
+  uploadedById String
+  metadata    Json?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  case           Case             @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  uploadedBy     User             @relation("UploadedBy", fields: [uploadedById], references: [id])
+  chainOfCustody ChainOfCustody[]
+
+  @@index([caseId])
+  @@index([hashSha256])
+  @@map("evidences")
+}
+
+// ─── 4. Chain of Custody ─────────────────────────────────────────────────────
+model ChainOfCustody {
+  id           String       @id @default(uuid())
+  evidenceId   String
+  caseId       String
+  eventType    CoCEventType
+  actorType    String       // 'USER' | 'AGENT' | 'SYSTEM'
+  actorId      String
+  hash         String
+  previousHash String?
+  details      Json?
+  timestamp    DateTime     @default(now())
+
+  evidence Evidence @relation(fields: [evidenceId], references: [id], onDelete: Cascade)
+  case     Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([evidenceId])
+  @@index([caseId])
+  @@map("chain_of_custody")
+}
+
+// ─── 5. Immutable Security Audit Log ─────────────────────────────────────────
+model AuditLog {
+  id           String   @id @default(uuid())
+  timestamp    DateTime @default(now())
+  actorType    String   // 'USER' | 'AGENT' | 'SYSTEM'
+  actorId      String
+  action       String   // 'EVIDENCE_UPLOAD' | 'AGENT_EXECUTED' | etc.
+  resourceType String   // 'CASE' | 'EVIDENCE' | 'REPORT' | etc.
+  resourceId   String?
+  caseId       String?
+  ipAddress    String?
+  userAgent    String?
+  metadata     Json?
+  signature    String   // HMAC-SHA256 of record contents for tamper proofing
+
+  case Case? @relation(fields: [caseId], references: [id], onDelete: SetNull)
+
+  @@index([timestamp])
+  @@index([caseId])
+  @@index([actorId])
+  @@map("audit_logs")
+}
+
+// ─── 6. Agent Executions ─────────────────────────────────────────────────────
+model AgentExecution {
+  id            String               @id @default(uuid())
+  caseId        String
+  agentName     String               // e.g. 'evidence-agent'
+  agentVersion  String               @default("1.0.0")
+  status        AgentExecutionStatus @default(PENDING)
+  inputPayload  Json?
+  outputPayload Json?
+  metrics       Json?
+  triggeredById String
+  startedAt     DateTime             @default(now())
+  completedAt   DateTime?
+
+  case        Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  triggeredBy User @relation("TriggeredBy", fields: [triggeredById], references: [id])
+
+  @@index([caseId])
+  @@index([agentName])
+  @@map("agent_executions")
+}
+
+// ─── 7. Timeline Events ──────────────────────────────────────────────────────
+model TimelineEvent {
+  id                  String   @id @default(uuid())
+  caseId              String
+  type                String
+  title               String
+  description         String
+  timestamp           DateTime
+  timestampConfidence String   @default("EXACT") // 'EXACT' | 'APPROXIMATE' | 'ESTIMATED'
+  participantIds      String[] @default([])
+  locationId          String?
+  evidenceRefs        String[] @default([])
+  significance        String   @default("MEDIUM") // 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL'
+  agentId             String
+  createdAt           DateTime @default(now())
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId])
+  @@index([timestamp])
+  @@map("timeline_events")
+}
+
+// ─── 8. Risk Assessments ─────────────────────────────────────────────────────
+model RiskAssessment {
+  id                    String   @id @default(uuid())
+  caseId                String
+  overallScore          Float
+  level                 String   // 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL'
+  victimSafetyScore     Float
+  evidenceStrengthScore Float
+  suspectRiskScore      Float
+  escalationProbability Float
+  factors               Json
+  escalationIndicators  String[]
+  explanation           String
+  reasoning             String[]
+  calculatedBy          String
+  calculatedAt          DateTime @default(now())
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId])
+  @@map("risk_assessments")
+}
+
+// ─── 9. Intelligence State Snapshot ──────────────────────────────────────────
+model IntelligenceState {
+  id            String   @id @default(uuid())
+  caseId        String   @unique
+  persons       Json     @default("[]")
+  organizations Json     @default("[]")
+  devices       Json     @default("[]")
+  findings      Json     @default("[]")
+  activeThreats Json     @default("[]")
+  hypotheses    Json     @default("[]")
+  confidence    Float    @default(1.0)
+  lastFusedAt   DateTime @default(now())
+  fusedBy       String   @default("fusion-agent")
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@map("intelligence_states")
+}
+
+// ─── 10. Reports ─────────────────────────────────────────────────────────────
+model Report {
+  id            String       @id @default(uuid())
+  caseId        String
+  reportType    ReportType   @default(FULL)
+  title         String
+  status        ReportStatus @default(DRAFT)
+  version       Int          @default(1)
+  sections      Json
+  pdfPath       String?
+  jsonPath      String?
+  hashSha256    String?
+  isSigned      Boolean      @default(false)
+  generatedById String
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  case        Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  generatedBy User @relation("ReportGeneratedBy", fields: [generatedById], references: [id])
+
+  @@index([caseId])
+  @@map("reports")
+}
+
+// ─── 11. Knowledge Graph Snapshots ───────────────────────────────────────────
+model GraphSnapshot {
+  id                String   @id @default(uuid())
+  caseId            String
+  nodeCount         Int
+  relationshipCount Int
+  snapshotData      Json
+  createdAt         DateTime @default(now())
+
+  @@index([caseId])
+  @@map("graph_snapshots")
+}
