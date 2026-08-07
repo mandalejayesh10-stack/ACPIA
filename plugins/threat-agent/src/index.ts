@@ -1,6 +1,6 @@
 /**
- * @acpia/threat-agent
- * Agent 3 — Threat Identification: grooming, blackmail, sextortion pattern detection
- * Sprint 25
+ * @acpia/threat-agent — Agent 3: Threat Identification
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './threat-identification-agent.js'

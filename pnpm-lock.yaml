@@ -384,6 +384,12 @@ importers:
       '@acpia/agent-sdk':
         specifier: workspace:*
         version: link:../../packages/agent-sdk
+      '@acpia/ai-provider':
+        specifier: workspace:*
+        version: link:../../packages/ai-provider
+      '@acpia/prompt-registry':
+        specifier: workspace:*
+        version: link:../../packages/prompt-registry
       '@acpia/shared':
         specifier: workspace:*
         version: link:../../packages/shared
