@@ -29,12 +29,12 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 | 2 | Backend Foundation (NestJS 10, HealthModule, ConfigModule, LoggerModule, Swagger UI) | ✅ **COMPLETE** |
 | 3 | Infrastructure (Docker Compose: Postgres 16, Neo4j 5, Redis 7, RabbitMQ 3, Qdrant, MinIO, Elasticsearch 8) | ✅ **COMPLETE** |
 | 4 | Authentication (JWT 15m, Refresh Token 8h rotation, RBAC Roles: INVESTIGATOR, SUPERVISOR, ADMIN, AUDITOR) | ✅ **COMPLETE** |
-| 5 | Database Schema (all tables) | ⬜ |
-| 6 | Knowledge Graph (Neo4j nodes + queries) | ⬜ |
-| 7 | Vector Database (Qdrant, embeddings API) | ⬜ |
-| 8 | Redis (cache, memory, sessions) | ⬜ |
-| 9 | RabbitMQ (topics, consumers, workers) | ⬜ |
-| 10 | MinIO (buckets, evidence, preview, hash) | ⬜ |
+| 5 | Database Schema (PostgreSQL Prisma ORM: 11 models, relations, PrismaService, DatabaseModule) | ✅ **COMPLETE** |
+| 6 | Knowledge Graph (Neo4j 5 Cypher, 10 ONTOLOGY node types, GraphService, GraphModule) | ✅ **COMPLETE** |
+| 7 | Vector Database (Qdrant REST Client, acpia_evidence & acpia_findings collections, VectorService) | ✅ **COMPLETE** |
+| 8 | Redis (ioredis, agent memory hashes, token blacklist, Copilot history lists, RedisService) | ✅ **COMPLETE** |
+| 9 | RabbitMQ (amqplib, topic exchanges, DLX dead letter queues, EventBusService, EventBusModule) | ✅ **COMPLETE** |
+| 10 | MinIO (minio SDK, acpia-evidence bucket, SHA-256 integrity verification, presigned URLs, MinioService) | ✅ **COMPLETE** |
 
 **Milestone**: All services running. Auth works. Evidence can be uploaded and stored.
 
@@ -46,9 +46,9 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 
 | Sprint | Name | Status |
 |---|---|---|
-| 11 | Evidence Upload API (upload, preview, delete, hash, CoC) | ⬜ |
-| 12 | Evidence Viewer (image, video, audio, PDF, text) | ⬜ |
-| 13 | Chief Investigation Agent (orchestration, no AI yet) | ⬜ |
+| 11 | Evidence Upload API (multipart stream upload, SHA-256 hash, CoC entry, Neo4j node, bus event) | ✅ **COMPLETE** |
+| 12 | Evidence Viewer (image zoom/pan, video player, audio waveform, PDF/text stream, Hex inspector, CoC timeline) | ✅ **COMPLETE** |
+| 13 | Chief Investigation Agent (orchestration, no AI yet) | ⬜ Queued |
 | 14 | Agent SDK (BaseAgent, plugin interface, manifest) | ⬜ |
 | 15 | Shared Memory (case, entity, conversation, evidence) | ⬜ |
 | 16 | Prompt Registry (versioned, typed, tested) | ⬜ |

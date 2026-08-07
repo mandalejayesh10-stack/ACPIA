@@ -75,3 +75,5 @@ infra/certs/
 tmp/
 temp/
 .tmp/
+
+.github/workflows/
