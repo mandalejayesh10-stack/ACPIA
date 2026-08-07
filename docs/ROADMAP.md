@@ -72,8 +72,8 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 | 25–26 | Agent 3: Threat Identification + Tests (grooming, extortion, blackmail & threat detection) | ✅ **COMPLETE** |
 | 27–28 | Agent 4: Context Extraction + Tests (GPS, landmarks, vehicles, uniforms from visual evidence) | ✅ **COMPLETE** |
 | 29–30 | Agent 5: Activity Pattern + Tests (network role, contact frequency, temporal behaviour analysis) | ✅ **COMPLETE** |
-| 31–32 | Agent 6: Metadata Mapping + Tests | ⬜ Queued |
-| 33–34 | Agent 7: Synthetic Detection + Tests | ⬜ |
+| 31–32 | Agent 6: Metadata Mapping + Tests (deterministic EXIF, GPS, IMEI, device fingerprinting — no LLM) | ✅ **COMPLETE** |
+| 33–34 | Agent 7: Synthetic Detection + Tests | ⬜ Queued |
 | 35–36 | Agent 8: Timeline Reconstruction + Tests | ⬜ |
 | 37–38 | Agent 9: Intelligent Retrieval + Tests | ⬜ |
 | 39–40 | Agent 10: Automated Reporting + Tests | ⬜ |

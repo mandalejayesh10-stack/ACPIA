@@ -1,6 +1,7 @@
 /**
- * @acpia/metadata-agent
- * Agent 6 — Metadata Mapping: EXIF, GPS, IMEI, device fingerprinting (no LLM)
- * Sprint 31
+ * @acpia/metadata-agent — Agent 6: Metadata Mapping
+ * Governed by docs/AGENT_CONTRACT.md
+ * Note: Deterministic rule-based agent — no LLM used per architecture contract.
  */
-export {}
+
+export * from './metadata-mapping-agent.js'
