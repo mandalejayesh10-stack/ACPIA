@@ -1,10 +1,11 @@
 'use client'
 
 import React, { useState } from 'react'
-import { AppLayout } from '../../components/layout/AppLayout'
-import { EvidenceList } from '../../components/evidence/EvidenceList'
-import { EvidenceViewer, EvidenceItem } from '../../components/evidence/EvidenceViewer'
-import { Upload, Plus, ShieldCheck } from 'lucide-react'
+import { AppLayout } from '@/components/layout/AppLayout'
+import { EvidenceList } from '@/components/evidence/EvidenceList'
+import { EvidenceGrid } from '@/components/evidence/EvidenceGrid'
+import { EvidenceViewer, EvidenceItem } from '@/components/evidence/EvidenceViewer'
+import { Upload, LayoutGrid, List } from 'lucide-react'
 
 const MOCK_EVIDENCE_ITEMS: EvidenceItem[] = [
   {
@@ -40,6 +41,7 @@ const MOCK_EVIDENCE_ITEMS: EvidenceItem[] = [
 ]
 
 export default function EvidencePage() {
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [selectedItem, setSelectedItem] = useState<EvidenceItem | null>(null)
 
   return (
@@ -59,31 +61,75 @@ export default function EvidencePage() {
             </p>
           </div>
 
-          <button
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '10px 16px',
-              background: 'var(--color-accent-cyan)',
-              color: '#050816',
-              border: 'none',
-              borderRadius: 'var(--radius-md)',
-              fontWeight: 600,
-              fontSize: '13px',
-              cursor: 'pointer',
-            }}
-          >
-            <Upload style={{ width: '16px', height: '16px' }} />
-            <span>Upload New Evidence</span>
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div
+              style={{
+                display: 'flex',
+                background: 'rgba(255,255,255,0.05)',
+                borderRadius: '8px',
+                padding: '2px',
+              }}
+            >
+              <button
+                onClick={() => setViewMode('grid')}
+                style={{
+                  padding: '6px 10px',
+                  borderRadius: '6px',
+                  border: 'none',
+                  background: viewMode === 'grid' ? 'var(--color-accent-cyan-dim)' : 'transparent',
+                  color:
+                    viewMode === 'grid' ? 'var(--color-accent-cyan)' : 'var(--color-text-tertiary)',
+                  cursor: 'pointer',
+                }}
+              >
+                <LayoutGrid style={{ width: '16px', height: '16px' }} />
+              </button>
+              <button
+                onClick={() => setViewMode('list')}
+                style={{
+                  padding: '6px 10px',
+                  borderRadius: '6px',
+                  border: 'none',
+                  background: viewMode === 'list' ? 'var(--color-accent-cyan-dim)' : 'transparent',
+                  color:
+                    viewMode === 'list' ? 'var(--color-accent-cyan)' : 'var(--color-text-tertiary)',
+                  cursor: 'pointer',
+                }}
+              >
+                <List style={{ width: '16px', height: '16px' }} />
+              </button>
+            </div>
+
+            <button
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '10px 16px',
+                background: 'var(--color-accent-cyan)',
+                color: '#050816',
+                border: 'none',
+                borderRadius: 'var(--radius-md)',
+                fontWeight: 600,
+                fontSize: '13px',
+                cursor: 'pointer',
+              }}
+            >
+              <Upload style={{ width: '16px', height: '16px' }} />
+              <span>Upload New Evidence</span>
+            </button>
+          </div>
         </div>
 
-        {/* Evidence List & Viewer */}
-        <EvidenceList
-          items={MOCK_EVIDENCE_ITEMS}
-          onSelectEvidence={(item) => setSelectedItem(item)}
-        />
+        {/* View Mode Toggle */}
+        {viewMode === 'grid' ? (
+          <EvidenceGrid />
+        ) : (
+          <EvidenceList
+            items={MOCK_EVIDENCE_ITEMS}
+            onSelectEvidence={(item) => setSelectedItem(item)}
+          />
+        )}
 
         {selectedItem && (
           <EvidenceViewer evidence={selectedItem} onClose={() => setSelectedItem(null)} />

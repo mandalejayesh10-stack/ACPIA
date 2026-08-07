@@ -96,11 +96,11 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 |---|---|---|
 | 53 | Knowledge Graph UI (interactive force-directed SVG canvas, entity drawer, filters) | ✅ **COMPLETE** |
 | 54 | Timeline UI (chronological event stream, category badges, investigator notes) | ✅ **COMPLETE** |
-| 55 | Map UI (GPS visualization, heatmap) | ⬜ Queued |
-| 56 | Evidence Explorer (Pinterest-style, hover preview) | ⬜ |
-| 57 | Investigation Dashboard (live metrics, pipeline view) | ⬜ |
-| 58 | Agent Monitoring Dashboard (all 16 agents, live) | ⬜ |
-| 59 | Performance Dashboard (cost, tokens, latency) | ⬜ |
+| 55 | Map UI (GPS visualization, cell tower triangulation, density heatmap) | ✅ **COMPLETE** |
+| 56 | Evidence Explorer (Pinterest-style masonry grid, hover preview, SHA-256 copy) | ✅ **COMPLETE** |
+| 57 | Investigation Dashboard (live metrics, threat score, active pipeline) | ✅ **COMPLETE** |
+| 58 | Agent Monitoring Dashboard (all 16 agents live metrics, latency, token usage) | ✅ **COMPLETE** |
+| 59 | Performance Dashboard (cost, tokens, latency) | ⬜ Queued |
 | 60 | System Testing (end-to-end, load testing) | ⬜ |
 | 61 | Security Testing (OWASP, penetration test prep) | ⬜ |
 | 62 | Performance Optimization (DB indexes, caching) | ⬜ |
