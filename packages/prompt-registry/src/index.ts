@@ -3,6 +3,8 @@
  * Governed by docs/PROMPT_REGISTRY.md
  */
 
+import { SYSTEM_PROMPTS } from './prompts.js'
+
 export interface PromptDefinition {
   id: string
   version: string
@@ -15,12 +17,23 @@ export interface PromptDefinition {
 export class PromptRegistry {
   private readonly registry = new Map<string, PromptDefinition>()
 
+  constructor() {
+    // Pre-register default investigation system prompts
+    for (const prompt of SYSTEM_PROMPTS) {
+      this.register(prompt)
+    }
+  }
+
   register(prompt: PromptDefinition): void {
     this.registry.set(prompt.id, prompt)
   }
 
   get(promptId: string): PromptDefinition | undefined {
     return this.registry.get(promptId)
+  }
+
+  list(): PromptDefinition[] {
+    return Array.from(this.registry.values())
   }
 
   render(promptId: string, variables: Record<string, unknown>): string {
@@ -36,3 +49,6 @@ export class PromptRegistry {
     return rendered
   }
 }
+
+export const defaultPromptRegistry = new PromptRegistry()
+export * from './prompts.js'
