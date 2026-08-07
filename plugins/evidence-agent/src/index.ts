@@ -1,6 +1,6 @@
 /**
- * @acpia/evidence-agent
- * Agent 1 — Evidence Intake: upload, validate, hash, chain-of-custody
- * Sprint 21
+ * @acpia/evidence-agent — Agent 1: Evidence Intake
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './evidence-intake-agent.js'
