@@ -10,6 +10,7 @@ import { StorageModule } from './common/storage/storage.module.js'
 import { HealthModule } from './health/health.module.js'
 import { AuthModule } from './auth/auth.module.js'
 import { EvidenceModule } from './evidence/evidence.module.js'
+import { OrchestratorModule } from './orchestrator/orchestrator.module.js'
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { EvidenceModule } from './evidence/evidence.module.js'
     HealthModule,
     AuthModule,
     EvidenceModule,
+    OrchestratorModule,
   ],
 })
 export class AppModule {}

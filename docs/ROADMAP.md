@@ -48,8 +48,8 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 |---|---|---|
 | 11 | Evidence Upload API (multipart stream upload, SHA-256 hash, CoC entry, Neo4j node, bus event) | ✅ **COMPLETE** |
 | 12 | Evidence Viewer (image zoom/pan, video player, audio waveform, PDF/text stream, Hex inspector, CoC timeline) | ✅ **COMPLETE** |
-| 13 | Chief Investigation Agent (orchestration, no AI yet) | ⬜ Queued |
-| 14 | Agent SDK (BaseAgent, plugin interface, manifest) | ⬜ |
+| 13 | Chief Investigation Agent (pipeline DAG orchestration engine, execution tracker, event subscriber) | ✅ **COMPLETE** |
+| 14 | Agent SDK (BaseAgent, plugin interface, manifest) | ⬜ Queued |
 | 15 | Shared Memory (case, entity, conversation, evidence) | ⬜ |
 | 16 | Prompt Registry (versioned, typed, tested) | ⬜ |
 | 17 | AI Provider Layer (reason, vision, ocr, speech, embed) | ⬜ |
