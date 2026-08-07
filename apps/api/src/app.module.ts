@@ -7,6 +7,7 @@ import { VectorModule } from './common/vector/vector.module.js'
 import { RedisModule } from './common/redis/redis.module.js'
 import { EventBusModule } from './common/events/event-bus.module.js'
 import { StorageModule } from './common/storage/storage.module.js'
+import { SharedMemoryModule } from './common/memory/shared-memory.module.js'
 import { HealthModule } from './health/health.module.js'
 import { AuthModule } from './auth/auth.module.js'
 import { EvidenceModule } from './evidence/evidence.module.js'
@@ -22,6 +23,7 @@ import { OrchestratorModule } from './orchestrator/orchestrator.module.js'
     RedisModule,
     EventBusModule,
     StorageModule,
+    SharedMemoryModule,
     HealthModule,
     AuthModule,
     EvidenceModule,
