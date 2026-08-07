@@ -1,6 +1,6 @@
 /**
- * @acpia/retrieval-agent
- * Agent 9 — Intelligent Retrieval: semantic search via Qdrant embeddings
- * Sprint 37
+ * @acpia/retrieval-agent — Agent 9: Intelligent Retrieval
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './intelligent-retrieval-agent.js'

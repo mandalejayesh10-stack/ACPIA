@@ -75,9 +75,9 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 | 31–32 | Agent 6: Metadata Mapping + Tests (deterministic EXIF, GPS, IMEI, device fingerprinting — no LLM) | ✅ **COMPLETE** |
 | 33–34 | Agent 7: Synthetic Detection + Tests (deepfake, GAN fingerprinting, AI-generated media verdict) | ✅ **COMPLETE** |
 | 35–36 | Agent 8: Timeline Reconstruction + Tests (ISO-timestamped chronological event ordering) | ✅ **COMPLETE** |
-| 37–38 | Agent 9: Intelligent Retrieval + Tests | ⬜ Queued |
-| 39–40 | Agent 10: Automated Reporting + Tests | ⬜ |
-| 41–42 | Agent 11: Risk Assessment + Tests | ⬜ |
+| 37–38 | Agent 9: Intelligent Retrieval + Tests (Qdrant semantic cosine search with embedding vectors) | ✅ **COMPLETE** |
+| 39–40 | Agent 10: Automated Reporting + Tests (ISO/IEC 27037 court-ready investigation report) | ✅ **COMPLETE** |
+| 41–42 | Agent 11: Risk Assessment + Tests | ⬜ Queued |
 | 43–44 | Agent 12: Intelligence Fusion + Tests | ⬜ |
 | 45–46 | Agent 13: Hypothesis Generation + Tests | ⬜ |
 | 47–48 | Agent 14: Verification + Tests | ⬜ |
