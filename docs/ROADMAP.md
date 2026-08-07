@@ -94,9 +94,9 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 
 | Sprint | Name | Status |
 |---|---|---|
-| 53 | Knowledge Graph UI (interactive, animated) | ⬜ |
-| 54 | Timeline UI (zoomable, filterable, annotatable) | ⬜ |
-| 55 | Map UI (GPS visualization, heatmap) | ⬜ |
+| 53 | Knowledge Graph UI (interactive force-directed SVG canvas, entity drawer, filters) | ✅ **COMPLETE** |
+| 54 | Timeline UI (chronological event stream, category badges, investigator notes) | ✅ **COMPLETE** |
+| 55 | Map UI (GPS visualization, heatmap) | ⬜ Queued |
 | 56 | Evidence Explorer (Pinterest-style, hover preview) | ⬜ |
 | 57 | Investigation Dashboard (live metrics, pipeline view) | ⬜ |
 | 58 | Agent Monitoring Dashboard (all 16 agents, live) | ⬜ |
