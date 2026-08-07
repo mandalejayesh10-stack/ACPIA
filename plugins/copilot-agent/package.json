@@ -2,7 +2,7 @@
   "name": "@acpia/copilot-agent",
   "version": "0.1.0",
   "private": true,
-  "description": "ACPIA — Agent 15: Copilot (Sprint 49)",
+  "description": "ACPIA — Agent 15: Investigation Copilot (Sprint 49)",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@acpia/agent-sdk": "workspace:*",
+    "@acpia/ai-provider": "workspace:*",
     "@acpia/shared": "workspace:*"
   },
   "devDependencies": {

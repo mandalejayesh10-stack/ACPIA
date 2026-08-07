@@ -260,6 +260,9 @@ importers:
       '@acpia/agent-sdk':
         specifier: workspace:*
         version: link:../../packages/agent-sdk
+      '@acpia/ai-provider':
+        specifier: workspace:*
+        version: link:../../packages/ai-provider
       '@acpia/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -286,6 +289,9 @@ importers:
       '@acpia/agent-sdk':
         specifier: workspace:*
         version: link:../../packages/agent-sdk
+      '@acpia/ai-provider':
+        specifier: workspace:*
+        version: link:../../packages/ai-provider
       '@acpia/shared':
         specifier: workspace:*
         version: link:../../packages/shared
