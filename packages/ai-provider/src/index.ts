@@ -62,3 +62,4 @@ export interface AIProvider {
 }
 
 export * from './ai-provider-manager.js'
+export * from './providers/openai-provider.js'
