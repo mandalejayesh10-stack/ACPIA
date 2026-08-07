@@ -1,6 +1,6 @@
 /**
- * @acpia/synthetic-agent
- * Agent 7 — Synthetic Detection: deepfake and AI-generated media detection
- * Sprint 33
+ * @acpia/synthetic-agent — Agent 7: Synthetic Detection
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './synthetic-detection-agent.js'
