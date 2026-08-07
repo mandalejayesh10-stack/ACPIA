@@ -1,6 +1,6 @@
 /**
- * @acpia/verification-agent
- * Agent 14 — Verification: cross-check all findings, detect hallucinations
- * Sprint 47
+ * @acpia/verification-agent — Agent 14: Verification
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './verification-agent.js'

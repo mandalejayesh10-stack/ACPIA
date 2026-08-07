@@ -1,6 +1,6 @@
 /**
- * @acpia/hypothesis-agent
- * Agent 13 — Hypothesis Generation: evidence-backed investigative hypotheses
- * Sprint 45
+ * @acpia/hypothesis-agent — Agent 13: Hypothesis Generation
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './hypothesis-generation-agent.js'
