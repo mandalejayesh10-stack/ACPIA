@@ -1,6 +1,6 @@
 /**
- * @acpia/content-agent
- * Agent 2 — Content Analysis: images, video, audio, documents via GPT-4o Vision + Whisper
- * Sprint 23
+ * @acpia/content-agent — Agent 2: Content Analysis
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './content-analysis-agent.js'
