@@ -1,6 +1,6 @@
 /**
- * @acpia/activity-agent
- * Agent 5 — Activity Pattern Analysis: communication behaviour and network role detection
- * Sprint 29
+ * @acpia/activity-agent — Agent 5: Activity Pattern Analysis
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './activity-pattern-agent.js'
