@@ -1,6 +1,6 @@
 /**
- * @acpia/fusion-agent
- * Agent 12 — Intelligence Fusion: merge all agent outputs into unified intelligence picture
- * Sprint 43
+ * @acpia/fusion-agent — Agent 12: Intelligence Fusion
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './intelligence-fusion-agent.js'

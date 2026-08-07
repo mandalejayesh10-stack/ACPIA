@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@acpia/agent-sdk": "workspace:*",
+    "@acpia/ai-provider": "workspace:*",
     "@acpia/shared": "workspace:*"
   },
   "devDependencies": {

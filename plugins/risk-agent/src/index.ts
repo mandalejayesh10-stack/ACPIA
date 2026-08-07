@@ -1,6 +1,6 @@
 /**
- * @acpia/risk-agent
- * Agent 11 — Risk Assessment: victim risk scoring, suspect threat scoring
- * Sprint 41
+ * @acpia/risk-agent — Agent 11: Risk Assessment
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './risk-assessment-agent.js'

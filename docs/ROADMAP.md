@@ -77,9 +77,9 @@ ACPIA is a **plugin-based AI investigation operating system** for law enforcemen
 | 35–36 | Agent 8: Timeline Reconstruction + Tests (ISO-timestamped chronological event ordering) | ✅ **COMPLETE** |
 | 37–38 | Agent 9: Intelligent Retrieval + Tests (Qdrant semantic cosine search with embedding vectors) | ✅ **COMPLETE** |
 | 39–40 | Agent 10: Automated Reporting + Tests (ISO/IEC 27037 court-ready investigation report) | ✅ **COMPLETE** |
-| 41–42 | Agent 11: Risk Assessment + Tests | ⬜ Queued |
-| 43–44 | Agent 12: Intelligence Fusion + Tests | ⬜ |
-| 45–46 | Agent 13: Hypothesis Generation + Tests | ⬜ |
+| 41–42 | Agent 11: Risk Assessment + Tests (victim risk score, suspect threat score, danger band) | ✅ **COMPLETE** |
+| 43–44 | Agent 12: Intelligence Fusion + Tests (deduplication, conflict resolution, case confidence) | ✅ **COMPLETE** |
+| 45–46 | Agent 13: Hypothesis Generation + Tests | ⬜ Queued |
 | 47–48 | Agent 14: Verification + Tests | ⬜ |
 | 49–50 | Agent 15: Copilot + Tests | ⬜ |
 | 51–52 | Agent 16: Explainability + Tests | ⬜ |
