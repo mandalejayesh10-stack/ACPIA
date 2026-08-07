@@ -1,6 +1,6 @@
 /**
- * @acpia/context-agent
- * Agent 4 — Context Extraction: landmarks, vehicles, uniforms, GPS from visual content
- * Sprint 27
+ * @acpia/context-agent — Agent 4: Context Extraction
+ * Governed by docs/AGENT_CONTRACT.md
  */
-export {}
+
+export * from './context-extraction-agent.js'
