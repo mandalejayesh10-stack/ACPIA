@@ -73,3 +73,5 @@ export interface AgentPlugin {
   health(): Promise<HealthStatus>
   shutdown(): Promise<void>
 }
+
+export * from './base-agent.js'
